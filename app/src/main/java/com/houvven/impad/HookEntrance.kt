@@ -21,8 +21,10 @@ class HookEntrance : XposedModule() {
     companion object {
         private const val TAG = BuildConfig.APPLICATION_ID
         private const val DEXKIT_PREFS_NAME = "IAMPAD_dexkit"
-        private const val QQ_TARGET_MODEL = "23046RP50C"
-        private const val XHS_TARGET_MODEL = "23046RP50C"
+        // 小米平板 9 Pro Max（玄戒 O3，13.3 英寸，2026-09 发布）
+        private const val PAD_TARGET_MODEL = "M367FC"
+        private const val QQ_TARGET_MODEL = PAD_TARGET_MODEL
+        private const val XHS_TARGET_MODEL = PAD_TARGET_MODEL
         private const val QQ_BUGLY_PREFS_NAME = "BUGLY_COMMON_VALUES"
         private const val QQ_PANDORA_CACHE_PATH = "files/mmkv/Pandora"
         private const val QQ_PANDORA_CRC_PATH = "files/mmkv/Pandora.crc"
