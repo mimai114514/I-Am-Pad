@@ -24,9 +24,18 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assemble
 
+      # fork 没有上游的签名密钥，这里根据密钥是否存在决定是否签名，
+      # 这样没有 secrets 时仍能产出可侧载的 debug APK。
+      - name: Check signing secrets
+        id: signing
+        env:
+          ANDROID_SIGNING_KEY: ${{ secrets.ANDROID_SIGNING_KEY }}
+        run: echo "available=${ANDROID_SIGNING_KEY:+true}" >> "$GITHUB_OUTPUT"
+
       - uses: ilharp/sign-android-release@v2
         name: Sign app APK
         id: sign_app
+        if: steps.signing.outputs.available == 'true'
         with:
           releaseDir: app/build/outputs/apk/release
           signingKey: ${{ secrets.ANDROID_SIGNING_KEY }}
@@ -35,6 +44,7 @@ jobs:
           keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
 
       - name: Upload release artifacts
+        if: steps.signing.outputs.available == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: i.am.pad-release apk
@@ -45,3 +55,4 @@ jobs:
         with:
           name: i.am.pad-debug apk
           path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: ignore
