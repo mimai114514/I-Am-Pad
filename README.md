@@ -19,7 +19,8 @@
 
 ## 本 fork 的改动
 
-伪装的平板机型由 **Xiaomi Pad 6 Pro（`23046RP50C`）** 改为 **Xiaomi Pad 9 Pro Max（`M367FC`，玄戒 O3 版，2026-09 发布）**。
+- 包名 / `applicationId` 改为 `io.github.mimai114514.impad`，可和官方 `com.houvven.impad` 同时安装；
+- 伪装的平板机型由 **Xiaomi Pad 6 Pro（`23046RP50C`）** 改为 **Xiaomi Pad 9 Pro Max（`M367FC`，玄戒 O3 版，2026-09 发布）**。
 
 改动只作用于模块原本就会改写机型的应用：
 

@@ -1,4 +1,4 @@
-package com.houvven.impad
+package io.github.mimai114514.impad
 
 import android.app.Application
 import android.content.Context

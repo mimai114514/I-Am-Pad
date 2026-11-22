@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.houvven.impad"
+    namespace = "io.github.mimai114514.impad"
     compileSdk = 36
 
     defaultConfig {
         applicationId = namespace
         minSdk = 27
         targetSdk = 36
-        versionCode = 12
-        versionName = "1.1.0-fork.1"
+        versionCode = 13
+        versionName = "1.1.0-fork.2"
     }
     buildTypes {
         release {
